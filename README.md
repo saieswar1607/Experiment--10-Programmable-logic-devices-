@@ -16,41 +16,65 @@ Figure -01 PROM
  
  
 ### Procedure
-/* write all the steps invloved */
+#### Step1:
 
+Create a new file in Quartus II.
+
+#### Step2:
+
+Name of the module should be the name of the project created.
+
+#### Step3:
+
+Declare the input and output.
+
+#### Step4:
+
+Use begin declaration to define the functionality of logic circuits.
+
+#### Step5:
+
+Simulate RTL and Timing Diagram.
 
 
 ### PROGRAM 
+```
 /*
 Program for PROM 
-Developed by: 
-RegisterNumber:  
+Developed by: Sai Eswar Kandukuri
+RegisterNumber: 212221240020
 */
 
 
-
-
-
-
+module ROM_code(out, addr, CS);
+output[15:0] out;
+input[3:0] addr;
+input CS;
+reg [15:0] out;
+reg [15:0] ROM[15:0];
+always @(negedge CS)
+begin
+ROM[0]=16'h5601; ROM[1]=16'h3401;
+ROM[2]=16'h1801; ROM[3]=16'h0ac1;
+ROM[4]=16'h0521; ROM[5]=16'h0221;
+ROM[6]=16'h5601; ROM[7]=16'h5401;
+ROM[8]=16'h4801; ROM[9]=16'h3801;
+ROM[10]=16'h3001; ROM[11]=16'h2401;
+ROM[12]=16'h1c01; ROM[13]=16'h1601;
+ROM[14]=16'h5601; ROM[15]=16'h5401;
+out=ROM[addr];
+end
+endmodule
+```
 ### RTL LOGIC  
 
-
-
-
-
-
+![1](https://user-images.githubusercontent.com/93427011/172906933-25eea12e-1c07-4cf3-947c-2cf4c7789665.png)
 
 
 ### TIMING DIGRAMS  
 
-
-
-
-
- 
-
-
-
+<img width="828" alt="romt" src="https://user-images.githubusercontent.com/93427011/172906367-8abb7c43-84ba-41d5-935f-78bc0043b645.png">
 
 
 ### RESULTS 
+Therefore PROM is implemented successfully using verilog and validate its output.
